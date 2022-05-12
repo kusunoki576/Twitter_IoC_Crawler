@@ -16,7 +16,7 @@ class Tweet:
         self.id = id
         self.text = text
         self.urls:List[str] = [] 
-        self.urls.extend(extract_url(self.text)) # extract_url
+        self.urls.extend(extract_url(self.text))
         self.hashes:List[str] = []
         self.hashes.extend(extract_hash_from_urls(self.urls))
 

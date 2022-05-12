@@ -16,7 +16,7 @@ def get_web_text(url: str) -> str:
         return str(ex)
 
     user_agent = 'Chrome/100.0.4896.127'
-    options = Options() # webdriver.chrome.options
+    options = Options()
     options.add_argument('--headless')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--no-sandbox')

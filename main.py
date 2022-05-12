@@ -15,4 +15,4 @@ while True:
     for twitter in twitter_list:
         twitter.update_tweets(5)
     print("===== sleeping =====")
-    time.sleep(3600)
+    time.sleep(1800)

@@ -9,7 +9,7 @@ class TwitterAccount:
     def __init__(self, username: str) -> None:
         username = username.replace('\r', '').replace('\n', '')
         self.username = username
-        self.userid = get_userid_from_username(username) # ok
+        self.userid = get_userid_from_username(username)
         self.tweets:List[Tweet]  = []
         self.slack_bot = SlackBot()
         self.slack_bot.send_start_message(username)
@@ -21,8 +21,3 @@ class TwitterAccount:
                 self.tweets.append(tw)
                 if tw.hashes:
                     self.slack_bot.send_detail_message(self.username, tw)
-
-#    def show_tweets(self) -> None:
-#        for tw in self.tweets:
-#            print(f"{tw.id} - {tw.text} \n {tw.urls} \n {tw.hashes} \n {tw.virustotals}")
-#            print("")
