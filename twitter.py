@@ -39,7 +39,7 @@ def get_userid_from_username(username: str) -> int:
         else:
             return -1
 
-def get_tweets(userid: int, max_results: int) -> List[Tweet]:
+def get_tweets(userid: int, max_results: int, acquired_tweet: List[Tweet]) -> List[Tweet]:
         get_tweets:List[Tweet] = []
         api_url  = f'{base_twitter_url}/users/{userid}/tweets'
         params  = {'max_results': max_results}
@@ -48,5 +48,6 @@ def get_tweets(userid: int, max_results: int) -> List[Tweet]:
             tweets = response.json()['data']
             for tweet in tweets:
                 tw = Tweet(tweet['id'], tweet['text'])
-                get_tweets.append(tw)
+                if tw not in acquired_tweet:
+                    get_tweets.append(tw)
         return get_tweets

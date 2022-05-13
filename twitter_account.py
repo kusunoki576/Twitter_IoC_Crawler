@@ -15,7 +15,7 @@ class TwitterAccount:
         self.slack_bot.send_start_message(username)
     
     def update_tweets(self, max_results: int = 5) -> None:
-        tweets:List[Tweet] = get_tweets(self.userid, max_results)
+        tweets:List[Tweet] = get_tweets(self.userid, max_results, self.tweets)
         for tw in tweets:
             if tw not in self.tweets:
                 self.tweets.append(tw)
