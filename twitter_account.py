@@ -9,7 +9,7 @@ class TwitterAccount:
     def __init__(self, username: str) -> None:
         username = username.replace('\r', '').replace('\n', '')
         self.username = username
-        self.userid = get_userid_from_username(username)
+        self.userid:List[int] = get_userid_from_username(username)
         self.tweets:List[Tweet]  = []
         self.slack_bot = SlackBot()
         self.slack_bot.send_start_message(username)
