@@ -23,7 +23,7 @@ class Tweet:
     def get_hash(self) -> None:
         self.hashes.extend(extract_hash_from_urls(self.urls))
 
-    def analyse_hash(self) -> None:
+    def analyze_hash(self) -> None:
         for hash in self.hashes:
             self.virustotals.append(analyze_virustotal(hash))
 
@@ -53,6 +53,6 @@ def get_tweets(userid: int, max_results: int, acquired_tweet: List[Tweet]) -> Li
                 tw = Tweet(tweet['id'], tweet['text'])
                 if tw not in acquired_tweet:
                     tw.get_hash()
-                    tw.analyse_hash()
+                    tw.analyze_hash()
                     get_tweets.append(tw)
         return get_tweets
